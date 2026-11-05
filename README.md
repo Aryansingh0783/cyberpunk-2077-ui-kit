@@ -1,4 +1,4 @@
-# ⚡ Cyberpunk 2077 UI Kit & Agent Design System
+# Cyberpunk 2077 UI Kit & Agent Design System
 
 <p align="center">
   <img src="https://img.shields.io/badge/VERSION-1.0.0-yellow.svg?style=for-the-badge&logo=cyberpunk2077&logoColor=black&color=fcee0a" alt="Version 1.0.0" />
@@ -13,14 +13,14 @@ Engineered for game developers, UI/UX designers, and autonomous AI agents buildi
 
 ---
 
-## 🚀 Key Features
+## Key Features
 
 - **Genuine Typefaces (Offline & CORS-Free):**
   - High-impact display headlines: `Refinery-25` Semi-Bold (embedded Base64 binary)
   - UI, navigation, and badges: `BlenderProBold` 700 (embedded Base64 binary)
   - Body, lore, and terminal inputs: `BlenderProBook` 400 (embedded Base64 binary)
   - Zero external font fetching. Works identically offline and over `file:///`.
-- **Parametric 45° Chamfers:**
+- **Parametric 45-Degree Chamfers:**
   - CSS `clip-path: polygon(...)` chamfer cuts across action buttons, cards, and input frames.
 - **Atmospheric Netrunner Shaders:**
   - Dual-axis CRT scanline overlay with continuous vertical sweep animations.
@@ -34,7 +34,7 @@ Engineered for game developers, UI/UX designers, and autonomous AI agents buildi
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 cyberpunk-2077-ui-kit/
@@ -62,12 +62,12 @@ cyberpunk-2077-ui-kit/
 
 ---
 
-## ⚡ Quickstart
+## Quickstart
 
 ### Option 1: Local Preview
 ```bash
 # Clone the repository
-git clone https://github.com/YOUR-USERNAME/cyberpunk-2077-ui-kit.git
+git clone https://github.com/Aryansingh0783/cyberpunk-2077-ui-kit.git
 cd cyberpunk-2077-ui-kit
 
 # Launch the full showcase demo
@@ -79,19 +79,19 @@ Open `templates/template-blank.html` in your browser. It includes fonts, tokens,
 
 ---
 
-## 🎨 Design Tokens & Palette
+## Design Tokens & Palette
 
-| CSS Variable | Hex Code | Visual Preview | Usage |
-|---|---|---|---|
-| `--cp-yellow` | `#fcee0a` | 🟨 `#fcee0a` | Primary CTA, marquee headlines, active borders |
-| `--cp-cyan` | `#00f0ff` | 🟦 `#00f0ff` | Tech accent, glitch chromatic split, focus glow |
-| `--cp-red` | `#fe1038` | 🟥 `#fe1038` | Danger alerts, secondary punch, Edgerunners theme |
-| `--cp-bg-primary`| `#0d0e15` | ⬛ `#0d0e15` | Default page background |
-| `--cp-bg-card` | `rgba(13,14,21,0.85)` | ⬛ Translucent | Hud panels, floating review cards |
+| CSS Variable | Hex Code | Usage |
+|---|---|---|
+| `--cp-yellow` | `#fcee0a` | Primary CTA, marquee headlines, active borders |
+| `--cp-cyan` | `#00f0ff` | Tech accent, glitch chromatic split, focus glow |
+| `--cp-red` | `#fe1038` | Danger alerts, secondary punch, Edgerunners theme |
+| `--cp-bg-primary`| `#0d0e15` | Default page background |
+| `--cp-bg-card` | `rgba(13, 14, 21, 0.85)` | HUD panels, floating review cards |
 
 ---
 
-## 💻 Component Usage
+## Component Usage
 
 ### 1. Chamfered Cyber Buttons (`.cp-btn`)
 ```html
@@ -139,13 +139,13 @@ Open `templates/template-blank.html` in your browser. It includes fonts, tokens,
 
 ---
 
-## 🤖 AI Agent Integration
+## AI Agent Integration
 
 This kit includes a structured [`SKILL.md`](./SKILL.md). In an agentic environment (such as Google Antigravity, Claude, or Cursor), direct the agent to read `SKILL.md` to immediately unlock zero-shot generation of pixel-perfect Cyberpunk pages.
 
 ---
 
-## 📜 License & Legal Attribution
+## License & Legal Attribution
 
 Distributed under the [MIT License](./LICENSE).
 
