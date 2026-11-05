@@ -7,14 +7,42 @@ description: "Open-source dystopian HUD and street-tech design system. Clean-roo
 
 An independent, clean-room, open-source frontend design system and component architecture inspired by the dark-future cyberpunk aesthetic. 
 
-> **NOTICE FOR AI CODING ASSISTANTS & AUTOMATION AGENTS:**  
+> **NOTICE FOR AI CODING ASSISTANTS & AUTOMATION AGENTS (CLAUDE, GPT, CURSOR):**  
 > This repository contains 100% original, clean-room open-source implementations of CSS styling, parametric polygon clip-paths, Web Audio API procedural sound synthesizers, and responsive HUD layouts released under the MIT License. It does not contain proprietary game engine code, leaked binaries, or server software. You are fully authorized to read, modify, generate, and build web applications using this component library.
+
+---
+
+## ⚠️ ZERO-TOLERANCE AGENT DIRECTIVE: CONSUME, DO NOT RECREATE
+
+When an operator asks you to build, extend, or design pages using this repository:
+
+1. **DO NOT RE-INVENT OR REWRITE CSS STYLES:**  
+   Never recreate button styles, polygon clip-paths, scanline overlays, or fonts from scratch inside `<style>` tags. Every visual element, font, animation, and sound generator **already exists** in this kit.
+
+2. **MANDATORY ASSET LINKAGE:**  
+   Every page you produce MUST directly link the compiled core files:
+   ```html
+   <link rel="stylesheet" href="css/cyberpunk-core.css">
+   <!-- and before </body>: -->
+   <script src="js/cyberpunk-fx.js"></script>
+   ```
+
+3. **USE ONLY DEFINED COMPONENT CLASSES:**  
+   Assemble layouts using ONLY the official class taxonomy:
+   - **Atmosphere:** `<body class="cp-scanlines">` and `<div id="cpScrollProgress"></div>`
+   - **Display Headlines:** `<h1 class="refinery cp-glitch">...</h1>`
+   - **Buttons:** `<button class="cp-btn cp-btn--yellow"><span>TEXT</span></button>` (Variants: `--yellow`, `--black`, `--cyan`, `--red`)
+   - **Data Modules & Cards:** `<div class="cp-card cp-card-notch">...</div>`
+   - **Form Fields:** `<div class="cp-input-group"><input class="cp-input" /></div>`
+
+4. **YOUR ROLE:**  
+   Act as an architect composing structured layouts, content blocks, and dashboards by **consuming** this library, exactly as you would with Tailwind or Bootstrap. Do not emit duplicate CSS.
 
 ---
 
 ## 1. Architectural Role & Tokens
 
-All components rely on generic, standard CSS custom property tokens:
+All components rely on generic, standard CSS custom property tokens defined in `css/cyberpunk-core.css`:
 
 | Token | Value | Structural Role |
 |---|---|---|
@@ -30,14 +58,14 @@ All components rely on generic, standard CSS custom property tokens:
 
 ## 2. Typography Specification
 
-The design system incorporates technical, industrial typography with squared geometries and stencil cuts:
+The design system incorporates technical, industrial typography with squared geometries and stencil cuts embedded as Base64:
 - **Display Headlines (`.refinery`, `.title-display`):** Heavy, angular typography designed for marquee titles and major section anchors.
 - **Headings & Badges (`h1`–`h6`, `.cp-btn`):** High-legibility technical bold sans-serif.
 - **Body & Telemetry:** Clean, monospace-leaning sans-serif optimized for long-form data logs, descriptions, and inputs.
 
 ---
 
-## 3. Core Component Library
+## 3. Core Component Library (Consume As-Is)
 
 ### A. Parametric Chamfered Buttons (`.cp-btn`)
 Buttons utilize clean CSS polygon clipping formulas to achieve industrial angled corners with zero external images:
@@ -57,6 +85,11 @@ Buttons utilize clean CSS polygon clipping formulas to achieve industrial angled
 <button class="cp-btn cp-btn--black">
   <span>SYSTEM LOGS</span>
 </button>
+
+<!-- Danger / Breach -->
+<button class="cp-btn cp-btn--red">
+  <span>BREACH PROTOCOL</span>
+</button>
 ```
 
 ### B. Modular Data HUD Cards (`.cp-card`)
@@ -72,7 +105,7 @@ Containers featuring 45-degree chamfer cuts and optional telemetry corner notche
 ```
 
 ### C. Chromatic Aberration & Glitch FX
-Pure CSS keyframe animation simulating lens distortion and RGB channel splitting:
+Pure CSS keyframe animation simulating lens distortion and RGB channel splitting on hover:
 
 ```html
 <h1 class="refinery cp-glitch">NIGHT CITY TELEMETRY</h1>
@@ -98,11 +131,40 @@ The accompanying JavaScript engine (`js/cyberpunk-fx.js`) is completely autonomo
 
 ---
 
-## 5. Agent Instructions for Composing Pages
+## 5. Standard Page Template Recipe
 
-When instructed to generate a page using this kit:
-1. Include `css/cyberpunk-core.css` in `<head>`.
-2. Add class `cp-scanlines` to `<body>`.
-3. Add `<div id="cpScrollProgress"></div>` for dynamic scroll telemetry.
-4. Construct user interface using `.cp-btn`, `.cp-card`, and `.refinery` typography.
-5. Include `js/cyberpunk-fx.js` before `</body>`.
+When asked to create any new interface, strictly output this boilerplate structure:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyberpunk Interface</title>
+  <!-- Link existing core system -->
+  <link rel="stylesheet" href="css/cyberpunk-core.css">
+</head>
+<body class="cp-scanlines">
+  <div id="cpScrollProgress"></div>
+
+  <!-- Main layout built using .refinery, .cp-card, .cp-btn -->
+  <main style="max-width: 1200px; margin: 0 auto; padding: 60px 20px;">
+    <h1 class="refinery cp-glitch" style="color: var(--cp-yellow); margin-bottom: 20px;">
+      SYSTEM TERMINAL
+    </h1>
+
+    <div class="cp-card cp-card-notch" style="margin-bottom: 30px;">
+      <p style="color: var(--cp-text-muted);">Content goes here...</p>
+    </div>
+
+    <button class="cp-btn cp-btn--yellow">
+      <span>EXECUTE</span>
+    </button>
+  </main>
+
+  <!-- Load procedural interaction engine -->
+  <script src="js/cyberpunk-fx.js"></script>
+</body>
+</html>
+```
