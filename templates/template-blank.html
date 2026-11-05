@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyberpunk Agent Starter</title>
+  <!-- Cyberpunk Core Design System (Fonts & FX) -->
+  <link rel="stylesheet" href="../css/cyberpunk-core.css">
+  <style>
+    .starter-hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      position: relative;
+    }
+    .starter-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .starter-title {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      color: var(--cp-yellow);
+      margin-bottom: 16px;
+    }
+    .starter-subtitle {
+      font-size: 1.2rem;
+      color: var(--cp-text-muted);
+      margin-bottom: 36px;
+    }
+    .starter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 40px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body class="cp-scanlines">
+  <div id="cpScrollProgress"></div>
+
+  <main class="starter-hero">
+    <div class="starter-container">
+      <h1 class="starter-title cp-glitch refinery">WELCOME TO NIGHT CITY</h1>
+      <p class="starter-subtitle">
+        Cyberpunk 2077 Modular Agent Kit. Loaded with genuine Refinery &amp; BlenderPro typefaces, synthesized audio feedback, chamfer cuts, and Netrunner CRT shaders.
+      </p>
+
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <button class="cp-btn cp-btn--yellow"><span>INITIALIZE SYSTEM</span></button>
+        <button class="cp-btn cp-btn--cyan"><span>EXECUTE PROTOCOL</span></button>
+        <button class="cp-btn cp-btn--black"><span>SECURITY LOGS</span></button>
+      </div>
+
+      <div class="starter-grid">
+        <div class="cp-card cp-card-notch">
+          <h3 style="color: var(--cp-yellow); margin-bottom: 10px;">01 // NETRUNNER CORE</h3>
+          <p style="color: var(--cp-text-muted);">Self-contained base64 typography. No external CORS dependencies, no network lag.</p>
+        </div>
+        <div class="cp-card cp-card-notch">
+          <h3 style="color: var(--cp-cyan); margin-bottom: 10px;">02 // HARDWARE AUDIO</h3>
+          <p style="color: var(--cp-text-muted);">Procedural Web Audio API oscillator synthesizing authentic tactile micro-clicks on hover.</p>
+        </div>
+        <div class="cp-card cp-card-notch">
+          <h3 style="color: var(--cp-red); margin-bottom: 10px;">03 // CHAMFER GEOMETRY</h3>
+          <p style="color: var(--cp-text-muted);">Parametric polygon clip-paths delivering military street-tech aesthetics across cards and buttons.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/cyberpunk-fx.js"></script>
+</body>
+</html>
