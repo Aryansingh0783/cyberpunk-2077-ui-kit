@@ -1,6 +1,6 @@
-/**
+﻿/**
  * Cyberpunk 2077 Engine FX Library
- * Reusable agent module for interactive audio, parallax, and text scrambling.
+ * Reusable agent module for interactive audio, parallax, text scrambling, and HUD layout handlers.
  */
 (function(window, document) {
   'use strict';
@@ -36,7 +36,7 @@
   };
 
   var CyberScramble = {
-    chars: '!<>-_\\/[]{}—=+*^?#_010101',
+    chars: '!<>-_\\/[]{}â€”=+*^?#_010101',
     scramble: function(element, duration) {
       if (!element) return;
       var original = element.getAttribute('data-original-text') || element.textContent;
@@ -64,14 +64,15 @@
 
   var CyberParallax = {
     init: function(selector, intensity) {
-      var elements = document.querySelectorAll(selector);
+      var elements = document.querySelectorAll(selector || '.cp-parallax, [data-parallax]');
       if (!elements.length) return;
       var factor = intensity || 15;
       window.addEventListener('mousemove', function(e) {
         var x = (e.clientX / window.innerWidth - 0.5) * factor;
         var y = (e.clientY / window.innerHeight - 0.5) * factor;
         elements.forEach(function(el) {
-          el.style.transform = 'translate(' + (-x) + 'px, ' + (-y) + 'px)';
+          var layerIntensity = parseFloat(el.getAttribute('data-parallax-depth')) || 1.0;
+          el.style.transform = 'translate(' + (-x * layerIntensity) + 'px, ' + (-y * layerIntensity) + 'px)';
         });
       }, { passive: true });
     }
@@ -81,11 +82,20 @@
     init: function() {
       var bar = document.getElementById('cpScrollProgress');
       var topBtn = document.getElementById('cpScrollTop');
+      var nav = document.querySelector('.cp-nav');
+
       window.addEventListener('scroll', function() {
         var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
         if (bar && height > 0) {
           bar.style.width = ((winScroll / height) * 100) + '%';
+        }
+        if (nav) {
+          if (winScroll > 40) {
+            nav.classList.add('is-scrolled');
+          } else {
+            nav.classList.remove('is-scrolled');
+          }
         }
         if (topBtn) {
           if (winScroll > 400) {
@@ -128,7 +138,7 @@
     init: function(options) {
       options = options || {};
       
-      // Attach hover clicks to interactive elements
+      // 1. Attach hover clicks to interactive elements
       var clickSelectors = options.clickSelectors || '.cp-btn, .cp-card, a, button';
       document.querySelectorAll(clickSelectors).forEach(function(el) {
         el.addEventListener('mouseenter', function() {
@@ -136,7 +146,7 @@
         }, { passive: true });
       });
 
-      // Attach text scramble on glitch elements
+      // 2. Attach text scramble on glitch elements
       var glitchSelectors = options.glitchSelectors || '.cp-glitch, .cp-scramble';
       document.querySelectorAll(glitchSelectors).forEach(function(el) {
         el.addEventListener('mouseenter', function() {
@@ -144,10 +154,13 @@
         });
       });
 
-      // Initialize scroll & progress
+      // 3. Auto-initialize parallax on .cp-parallax layers
+      CyberParallax.init('.cp-parallax, [data-parallax]');
+
+      // 4. Initialize scroll, sticky nav & progress
       CyberScroll.init();
 
-      // Initialize video autoplays
+      // 5. Initialize video autoplays
       CyberVideo.initAutoplay();
     }
   };
